@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    func testRemove() {
+        var str = "hello"
+        str.removeFirst()
+        print(str)
+    }
+    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sentimentLabel: UILabel!
