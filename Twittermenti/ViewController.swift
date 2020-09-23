@@ -7,14 +7,11 @@
 //
 
 import UIKit
+import SwifteriOS
 
 class ViewController: UIViewController {
     
-    func testRemove() {
-        var str = "hello"
-        str.removeFirst()
-        print(str)
-    }
+    let swifter = Swifter(consumerKey: S.apikey, consumerSecret: S.apisecret)
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -23,6 +20,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        swifter.searchTweet(using: "@apple", lang: "en", count: 100, tweetMode: .extended, success: { (results, metadata) in
+            print(results)
+        }) { (error) in
+            print("Error w/Twitter API request: \n \(error)")
+        }
     }
 
     @IBAction func predictPressed(_ sender: Any) {
