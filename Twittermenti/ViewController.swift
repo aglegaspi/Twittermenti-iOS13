@@ -14,7 +14,16 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     let swifter = Swifter(consumerKey: S.apikey, consumerSecret: S.apisecret)
-    let sentimentClassifier = TweetSentimentClassifier()
+    
+    let sentimentClassifier: TweetSentimentClassifier = {
+        do {
+            let config = MLModelConfiguration()
+            return try TweetSentimentClassifier(configuration: config)
+        } catch {
+            print(error)
+            fatalError("Couldn't create TweetSentimentClassifier")
+        }
+    }()
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -28,15 +37,21 @@ class ViewController: UIViewController {
         
         swifter.searchTweet(using: "@apple", lang: "en", count: 100, tweetMode: .extended, success: { (results, metadata) in
             
-            var tweets = [String]()
+            // set this array to TSCI objects to pass in the classifers predictions expected type
+            var tweets = [TweetSentimentClassifierInput]()
             
             for i in 0..<100 {
                 if let tweet = results[i]["full_text"].string {
-                    tweets.append(tweet)
+                    let tweetForClassification = TweetSentimentClassifierInput(text: tweet)
+                    tweets.append(tweetForClassification)
                 }
             }
-            
-            print(tweets)
+            do {
+                let predictions = try self.sentimentClassifier.predictions(inputs: tweets)
+                print(predictions[0].label)
+            } catch {
+                print("Error making prediction: \(error)")
+            }
             
             
             //print(results)
