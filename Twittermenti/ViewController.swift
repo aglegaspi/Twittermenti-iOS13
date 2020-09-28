@@ -58,10 +58,20 @@ class ViewController: UIViewController {
                 // pass in array of TweetSentimentClassifierInput objects and if successful store data in predictions array
                 let predictions = try self.sentimentClassifier.predictions(inputs: tweets)
                 
+                var sentimentScore = 0
+                
                 // loops through the predictions array and on each prediction objecet print the value of the label property
                 for prediction in predictions {
-                    print(prediction.label)
+                    let sentiment = prediction.label
+                    
+                    if sentiment == "Pos" {
+                        sentimentScore += 1
+                    } else if sentiment == "Neg" {
+                        sentimentScore -= 1
+                    }
                 }
+                
+                print(sentimentScore)
             } catch {
                 print("Error making prediction: \(error)")
             }
