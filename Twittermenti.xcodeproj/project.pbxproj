@@ -18,6 +18,7 @@
 		EC499FBB251BAE3E009D2DED /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC499FB1251BAD71009D2DED /* SwifteriOS.framework */; };
 		EC499FBC251BAE3E009D2DED /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC499FB1251BAD71009D2DED /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC499FBF251BB0F4009D2DED /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC499FBE251BB0F4009D2DED /* Secrets.swift */; };
+		ECF79BB72522260100BD1772 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79BB62522260100BD1772 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		EC499FA6251A36F8009D2DED /* TweetSentimentClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TweetSentimentClassifier.mlmodel; sourceTree = SOURCE_ROOT; };
 		EC499FA8251BAD70009D2DED /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = ../Swifter/Swifter.xcodeproj; sourceTree = "<group>"; };
 		EC499FBE251BB0F4009D2DED /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		ECF79BB62522260100BD1772 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				AD9EC64F20FE2EF4002AE9BF /* AppDelegate.swift */,
 				AD9EC65120FE2EF4002AE9BF /* ViewController.swift */,
+				ECF79BB62522260100BD1772 /* Constants.swift */,
 				EC499FBE251BB0F4009D2DED /* Secrets.swift */,
 				AD9EC65320FE2EF4002AE9BF /* Main.storyboard */,
 				AD9EC65620FE2EF7002AE9BF /* Assets.xcassets */,
@@ -328,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECF79BB72522260100BD1772 /* Constants.swift in Sources */,
 				EC499FA7251A36F8009D2DED /* TweetSentimentClassifier.mlmodel in Sources */,
 				EC499FBF251BB0F4009D2DED /* Secrets.swift in Sources */,
 				AD9EC65220FE2EF4002AE9BF /* ViewController.swift in Sources */,
